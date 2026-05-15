@@ -1,30 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-import Markdown from "react-markdown";
 import { motion } from "motion/react";
-
-function ProjectImage({ src, alt }: { src: string; alt: string }) {
-  const [imageError, setImageError] = useState(false);
-
-  if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-      onError={() => setImageError(true)}
-    />
-  );
-}
 
 interface Props {
   title: string;
@@ -32,9 +12,7 @@ interface Props {
   description: string;
   dates: string;
   tags: readonly string[];
-  link?: string;
-  image?: string;
-  video?: string;
+  index: number;
   links?: readonly {
     icon: React.ReactNode;
     type: string;
@@ -49,103 +27,80 @@ export function ProjectCard({
   description,
   dates,
   tags,
-  link,
-  image,
-  video,
+  index,
   links,
   className,
 }: Props) {
   return (
     <motion.div
       className={cn(
-        "group flex flex-col h-full border border-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300",
-        "hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 hover:-translate-y-1",
+        "group relative flex flex-col justify-between border border-border rounded-2xl p-6 w-[320px] md:w-[360px] h-[280px] shrink-0 select-none",
+        "bg-card transition-all duration-300",
+        "hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5",
         className
       )}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ y: -8, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <div className="relative shrink-0 overflow-hidden">
-        <Link
-          href={href || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
-          {video ? (
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-48 object-cover"
-            />
-          ) : image ? (
-            <ProjectImage src={image} alt={title} />
-          ) : (
-            <div className="w-full h-48 bg-muted relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                <span className="text-4xl font-bold text-primary/20">{title.charAt(0)}</span>
-              </div>
-            </div>
-          )}
-        </Link>
-        {links && links.length > 0 && (
-          <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-            {links.map((link, idx) => (
+      {/* Number watermark */}
+      <span className="absolute top-4 right-5 text-5xl font-black text-primary/[0.06] tabular-nums leading-none pointer-events-none">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className="space-y-3 relative">
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <h3 className="font-semibold text-base group-hover:text-primary transition-colors leading-tight">
+              {title}
+            </h3>
+            <time className="text-xs text-muted-foreground mt-0.5 block">{dates}</time>
+          </div>
+          <div className="flex items-center gap-1.5 shrink-0">
+            {links?.map((link, idx) => (
               <Link
-                href={link.href}
                 key={idx}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
+                className="p-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all"
               >
-                <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black/80 text-white hover:bg-black backdrop-blur-sm"
-                  variant="default"
-                >
-                  {link.icon}
-                  {link.type}
-                </Badge>
+                {link.icon}
               </Link>
             ))}
-          </div>
-        )}
-      </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
-        <div className="flex items-start justify-between gap-2">
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold group-hover:text-primary transition-colors">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
-          </div>
-          <Link
-            href={href || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            aria-label={`Open ${title}`}
-          >
-            <ArrowUpRight className="h-4 w-4" aria-hidden />
-          </Link>
-        </div>
-        <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-          <Markdown>{description}</Markdown>
-        </div>
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-auto">
-            {tags.map((tag) => (
-              <Badge
-                key={tag}
-                className="text-[11px] font-medium border border-border h-6 w-fit px-2 transition-colors hover:bg-primary hover:text-primary-foreground"
-                variant="outline"
+            {href && (
+              <Link
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all"
               >
-                {tag}
-              </Badge>
-            ))}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            )}
           </div>
-        )}
+        </div>
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+          {description}
+        </p>
       </div>
+
+      {tags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
+          {tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="outline"
+              className="text-[10px] font-medium px-2 py-0 border-border group-hover:border-primary/20 group-hover:text-primary/80 transition-colors"
+            >
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      )}
+
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-primary/0 group-hover:bg-primary/40 transition-all duration-500" />
     </motion.div>
   );
 }

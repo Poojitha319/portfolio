@@ -1,6 +1,6 @@
 import React from "react";
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, FileTextIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
@@ -18,32 +18,88 @@ export const DATA = {
   location: "Nuzvid, Andhra Pradesh, India",
   locationLink: "https://www.google.com/maps/place/Nuzvid",
   description:
-    "Passionate developer from India building AI-powered products that solve real-world problems. 3x National Hackathon Winner | 500+ LeetCode",
+    "Shipping production AI systems end-to-end — from code to cloud.",
+  roles: [
+    "AI Backend Engineer",
+    "Data Engineer",
+    "Cloud & DevOps Engineer",
+    "Full Stack Developer",
+    "Agentic AI Builder",
+  ],
   summary:
     "Hi, I'm Poojitha! I'm a B.Tech CS graduate (May 2026) from [IIIT Nuzvid](/#education), currently working as an AI Backend Engineer at [Quantum Gandiva AI](/#work) where I build production Agentic AI systems with FastAPI, AWS, and LLMs. Previously, I worked as an [AI/ML Developer at Parabola9](/#work), developing and deploying generative AI applications. I've won [3 national-level hackathons](/#hackathons) including Smart India Hackathon 2024, and solved [500+ LeetCode problems](https://leetcode.com/u/poojitha_2004/) with a contest rating of 1600+. I believe technology should be accessible to everyone — that's why I build AI products that solve real-world problems for real people.",
   avatarUrl: "/me.jpg",
-  skills: [
-    { name: "Python", icon: Python },
-    { name: "Java", icon: Java },
-    { name: "FastAPI", icon: Python },
-    { name: "React", icon: ReactLight },
-    { name: "Node.js", icon: Nodejs },
-    { name: "PostgreSQL", icon: Postgresql },
-    { name: "Docker", icon: Docker },
-    { name: "AWS", icon: Nodejs },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "TensorFlow", icon: Python },
-    { name: "LangChain", icon: Python },
-    { name: "LLMs", icon: Python },
-    { name: "Agentic AI", icon: Python },
-    { name: "Generative AI", icon: Python },
-    { name: "Terraform", icon: Docker },
-    { name: "Next.js", icon: NextjsIconDark },
-    { name: "TypeScript", icon: Typescript },
+  stats: [
+    { value: "3x", label: "Hackathon Winner", sublabel: "Including SIH 2024" },
+    { value: "500+", label: "LeetCode Problems", sublabel: "1600+ Contest Rating" },
+    { value: "2+", label: "AI Systems Shipped", sublabel: "In Production" },
+    { value: "8.5", label: "CGPA", sublabel: "IIIT Nuzvid" },
+  ],
+  skillCategories: [
+    {
+      category: "Languages",
+      skills: [
+        { name: "Java", icon: Java },
+        { name: "C", icon: null },
+        { name: "C++", icon: null },
+        { name: "Python", icon: Python },
+        { name: "JavaScript", icon: null },
+        { name: "TypeScript", icon: Typescript },
+        { name: "Dart", icon: null },
+      ],
+    },
+    {
+      category: "AI / ML",
+      skills: [
+        { name: "Agentic AI", icon: null },
+        { name: "LLMs", icon: null },
+        { name: "Generative AI", icon: null },
+        { name: "NLP", icon: null },
+        { name: "Machine Learning", icon: null },
+        { name: "Deep Learning", icon: null },
+        { name: "LangChain", icon: null },
+        { name: "TensorFlow", icon: null },
+      ],
+    },
+    {
+      category: "Web & Backend",
+      skills: [
+        { name: "FastAPI", icon: Python },
+        { name: "Django", icon: Python },
+        { name: "REST APIs", icon: null },
+        { name: "React", icon: ReactLight },
+        { name: "Next.js", icon: NextjsIconDark },
+        { name: "Node.js", icon: Nodejs },
+        { name: "Flutter", icon: null },
+      ],
+    },
+    {
+      category: "Tools & DevOps",
+      skills: [
+        { name: "Git", icon: null },
+        { name: "Docker", icon: Docker },
+        { name: "Kubernetes", icon: Kubernetes },
+        { name: "Postman", icon: null },
+        { name: "GitHub Actions", icon: null },
+        { name: "CI/CD", icon: null },
+        { name: "Redis", icon: null },
+        { name: "Terraform", icon: null },
+      ],
+    },
+    {
+      category: "Databases & Cloud",
+      skills: [
+        { name: "MySQL", icon: null },
+        { name: "PostgreSQL", icon: Postgresql },
+        { name: "AWS", icon: null },
+        { name: "GCP", icon: null },
+      ],
+    },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "https://poojithasdatadairies.blogspot.com/", icon: NotebookIcon, label: "Blog" },
+    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/resume.pdf", icon: FileTextIcon, label: "Resume" },
   ],
   contact: {
     email: "saipoojithasajjavarapu@gmail.com",
@@ -81,7 +137,19 @@ export const DATA = {
       start: "November 2025",
       end: "Present",
       description:
-        "Built and deployed the entire backend stack for a production Agentic AI product — agent orchestration, execution logic, and system coordination\nDesigned and shipped FastAPI-based services with async request handling, modular API design, and optimized data flow for LLM reasoning and dynamic tool-calling\nArchitected cloud infrastructure on AWS using Terraform for IaC, enabling reproducible and secure environment provisioning\nImplemented production-grade security, CI/CD pipelines, and monitoring — achieving zero critical failures in production",
+        "Solely built and deployed the entire backend for a production Agentic AI product from scratch — designed the multi-agent orchestration, execution logic, and system coordination layer\nOwned the backend architecture end-to-end: shipped FastAPI-based microservices with async request handling, modular API design, and optimized data flow for LLM reasoning and dynamic tool-calling\nEngineered data pipelines and ETL workflows for structured and unstructured data, enabling LLM context retrieval and powering business analytics\nSingle-handedly architected the cloud infrastructure on AWS (EC2, S3, Lambda, RDS) using Terraform for IaC — reproducible, scalable, and secure from day one\nSet up the entire CI/CD pipeline, container orchestration with Docker & Kubernetes, production monitoring, and security hardening — zero critical failures in production",
+    },
+    {
+      company: "MSM AI",
+      href: "#",
+      badges: ["Freelance"],
+      location: "Remote",
+      title: "AI Engineer",
+      logoUrl: "",
+      start: "September 2025",
+      end: "December 2025",
+      description:
+        "Worked on designing and integrating AI agents and automation pipelines to enhance system intelligence and operational efficiency\nBuilt and deployed end-to-end machine learning and deep learning models integrated with LLMs for intelligent decision-making and workflow automation\nCollaborated with cross-functional teams to develop and optimize scalable, production-ready AI solutions, ensuring seamless deployment and continuous improvement",
     },
     {
       company: "Parabola9",
@@ -117,36 +185,31 @@ export const DATA = {
   projects: [
     {
       title: "Tailor-Fit: AI Shopping Platform",
-      href: "https://github.com/Poojitha319/Tailor-Fit",
+      href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
       dates: "2024",
-      active: false,
       description:
-        "An innovative fashion-tech platform that bridges the gap between traditional tailoring and online shopping. Designed an end-to-end ML pipeline for body measurement estimation and virtual try-on with real-time inference. Achieved 35% simulated return-rate reduction via automated measurement extraction and a connected local tailor network.",
+        "Built the ML/CV pipeline and backend for a fashion-tech platform. Developed 3D body reconstruction from single images using PiHuD, automated body measurement extraction via cross-sectional geometry on SMPL meshes, and integrated virtual try-on with HR-VITON. Achieved 35% simulated return-rate reduction. Team project — owned model development and backend.",
       technologies: [
-        "React.js",
-        "Node.js",
-        "Express.js",
         "Python",
-        "TensorFlow",
         "PyTorch",
         "PiHuD",
-        "HR-VITON",
+        "Open3D",
+        "MediaPipe",
+        "Node.js",
+        "Express.js",
       ],
       links: [
         {
           type: "Source",
-          href: "https://github.com/Poojitha319/Tailor-Fit",
+          href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/projects/tailorfit.webp",
-      video: "",
     },
     {
       title: "BloodLink: AI Donor-Bank Matching",
       href: "https://github.com/Poojitha319/AI-Driven-Blood-Donation-Network",
       dates: "2024",
-      active: false,
       description:
         "An AI-driven blood donation platform integrating FastAPI and Flutter for real-time donor-blood bank connectivity. Implemented intelligent matching using Vertex AI, LangChain, and FAISS vector search. Integrated Google Maps API with geofencing and smart alerts for location-aware donor mobilization.",
       technologies: [
@@ -165,25 +228,20 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/projects/bloodlink.png",
-      video: "",
     },
     {
-      title: "MeddiBuddy: Medicine Analyzer",
+      title: "MediBuddy: AI Prescription Interpreter",
       href: "https://github.com/Poojitha319/MediBuddy",
       dates: "2025",
-      active: true,
       description:
         "A full-stack AI-powered medicine analysis platform. Upload medicine package images and get instant structured analysis including usage, side effects, warnings, and more. Built with accessibility in mind for elderly users. Features JWT authentication, analysis history, and multi-language support.",
       technologies: [
         "React.js",
         "FastAPI",
         "PostgreSQL",
-        "Tailwind CSS",
         "Gemini API",
         "JWT",
         "Docker",
-        "Vite",
       ],
       links: [
         {
@@ -192,14 +250,11 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "",
     },
     {
       title: "VisualDSA: AI-Powered DSA Animator",
       href: "https://github.com/Poojitha319/VisualDSA",
       dates: "2025",
-      active: true,
       description:
         "Describe any DSA concept and watch it come alive as a step-by-step animation. Uses Groq's LLaMA 3 to generate Manim animation code, renders it into MP4 videos, and displays them in a Streamlit interface. From confusion to clarity in one click.",
       technologies: [
@@ -208,7 +263,6 @@ export const DATA = {
         "LLaMA 3",
         "Manim",
         "Streamlit",
-        "LLMs",
       ],
       links: [
         {
@@ -217,8 +271,48 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "",
+    },
+    {
+      title: "VideoGPT: AI Video Caption Generator",
+      href: "https://github.com/Poojitha319/The-Challangers",
+      dates: "2024",
+      description:
+        "A deep learning-based tool for automated video caption generation. Reduces and eliminates redundant frames, processes optimized frames through InternV2 model, and generates summarized captions. Built with a production-ready web interface. Won 1st Prize at IIIT Hackathon, leading to an internship at Parabola9.",
+      technologies: [
+        "Python",
+        "Deep Learning",
+        "InternV2",
+        "NLP",
+        "Jupyter",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Poojitha319/The-Challangers",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+    },
+    {
+      title: "London RAG Agent",
+      href: "https://github.com/Poojitha319/london-rag-agent",
+      dates: "2025",
+      description:
+        "An intelligent RAG (Retrieval-Augmented Generation) agent built with LangChain and vector search for context-aware question answering. Demonstrates production-level agentic AI patterns with document retrieval, embedding pipelines, and LLM orchestration.",
+      technologies: [
+        "Python",
+        "LangChain",
+        "RAG",
+        "Vector DB",
+        "LLMs",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Poojitha319/london-rag-agent",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
     },
   ],
   hackathons: [
