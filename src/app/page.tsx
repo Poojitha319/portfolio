@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import CountUp from "@/components/magicui/count-up";
+import TypingRoles from "@/components/magicui/typing-roles";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -26,9 +28,14 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[1]}`}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 1.5}>
+                <div className="text-lg md:text-xl lg:text-2xl font-medium min-h-[2em]">
+                  <TypingRoles roles={[...DATA.roles]} />
+                </div>
+              </BlurFade>
               <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
+                className="text-muted-foreground max-w-[600px] md:text-base lg:text-lg"
+                delay={BLUR_FADE_DELAY * 2}
                 text={DATA.description}
               />
             </div>
@@ -40,6 +47,30 @@ export default function Page() {
             </BlurFade>
           </div>
         </div>
+      </section>
+      <section id="stats">
+        <BlurFade delay={BLUR_FADE_DELAY * 2.5}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {DATA.stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="relative group border border-border rounded-xl p-4 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
+                  <CountUp
+                    value={stat.value}
+                    className="text-3xl md:text-4xl font-bold tracking-tight text-primary block"
+                  />
+                  <div className="text-sm font-semibold mt-1">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    {stat.sublabel}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </BlurFade>
       </section>
       <section id="about">
         <div className="flex min-h-0 flex-col gap-y-4">
@@ -118,12 +149,23 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-2">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                  <span className="text-foreground text-sm font-medium">{skill.name}</span>
+          <div className="border border-border rounded-xl overflow-hidden divide-y divide-border">
+            {DATA.skillCategories.map((category, catIndex) => (
+              <BlurFade key={category.category} delay={BLUR_FADE_DELAY * 10 + catIndex * 0.08}>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground w-full sm:w-36 shrink-0 sm:pt-1">
+                    {category.category}
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className="rounded-md border border-border bg-muted/40 px-2.5 py-1 text-xs font-medium text-foreground transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 hover:text-primary cursor-default"
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </BlurFade>
             ))}
