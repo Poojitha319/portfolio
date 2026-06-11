@@ -137,7 +137,7 @@ export const DATA = {
       start: "November 2025",
       end: "Present",
       description:
-        "Solely architected and shipped the entire production backend for an Agentic AI platform from scratch — orchestrating 7+ autonomous agents with multi-step reasoning, tool-calling, and memory pipelines\nBuilt FastAPI-based microservices with async request handling, modular API design, and optimized data flow integrating LLM reasoning, agent memory, and dynamic tool-calling workflows — maintaining zero downtime since production launch\nEngineered AWS data pipelines (S3, Lambda, RDS) with Terraform for real-time ingestion and ETL; set up CI/CD, Docker & Kubernetes orchestration, and production monitoring — zero critical failures across the entire infrastructure\nSingle-handedly owned the backend architecture end-to-end: from system design to deployment to monitoring — the sole engineer responsible for the entire backend stack",
+        "Architected and shipped the entire production backend for an Agentic AI platform from scratch — orchestrating 7+ autonomous agents with multi-step reasoning, tool-calling, and memory pipelines\nBuilt FastAPI microservices with async request handling, modular API design, and optimized data flow integrating LLM reasoning, agent memory, and dynamic tool-calling workflows\nEngineered AWS data pipelines (S3, Lambda, RDS) with Terraform for real-time ingestion and ETL, and set up CI/CD, Docker & Kubernetes orchestration with production monitoring\nOwned the backend end-to-end as the lead engineer — from system design to deployment to monitoring — keeping the platform reliable in production",
     },
     {
       company: "MSM AI",
@@ -185,6 +185,8 @@ export const DATA = {
   projects: [
     {
       title: "Tailor-Fit: AI Shopping Platform",
+      image: "/projects/tailorfit.png",
+      video: "",
       href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
       dates: "2024",
       description:
@@ -208,6 +210,8 @@ export const DATA = {
     },
     {
       title: "BloodLink: AI Donor-Bank Matching",
+      image: "/projects/bloodlink.png",
+      video: "",
       href: "https://github.com/Poojitha319/AI-Driven-Blood-Donation-Network",
       dates: "2024",
       description:
@@ -231,6 +235,8 @@ export const DATA = {
     },
     {
       title: "MediBuddy: AI Prescription Interpreter",
+      image: "/projects/medibuddy.png",
+      video: "",
       href: "https://github.com/Poojitha319/MediBuddy",
       dates: "2025",
       description:
@@ -253,6 +259,8 @@ export const DATA = {
     },
     {
       title: "VisualDSA: AI-Powered DSA Animator",
+      image: "",
+      video: "/projects/visualdsa.mp4",
       href: "https://github.com/Poojitha319/VisualDSA",
       dates: "2025",
       description:
@@ -274,6 +282,8 @@ export const DATA = {
     },
     {
       title: "VideoGPT: AI Video Caption Generator",
+      image: "",
+      video: "",
       href: "https://github.com/Poojitha319/The-Challangers",
       dates: "2024",
       description:
@@ -289,27 +299,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/Poojitha319/The-Challangers",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-    },
-    {
-      title: "London RAG Agent",
-      href: "https://github.com/Poojitha319/london-rag-agent",
-      dates: "2025",
-      description:
-        "An intelligent RAG (Retrieval-Augmented Generation) agent built with LangChain and vector search for context-aware question answering. Demonstrates production-level agentic AI patterns with document retrieval, embedding pipelines, and LLM orchestration.",
-      technologies: [
-        "Python",
-        "LangChain",
-        "RAG",
-        "Vector DB",
-        "LLMs",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/Poojitha319/london-rag-agent",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -346,7 +335,7 @@ export const DATA = {
       dates: "December 2024",
       location: "National Level, Government of India",
       description:
-        "Mentored a winning team that secured 1st Prize at India's most prestigious national hackathon. Developed an innovative solution for Dynamic Route Rationalization (Problem Statement 1617), optimizing routes efficiently using advanced algorithms and data-driven insights.",
+        "Built the core machine learning model for the team that won 1st Prize at India's most prestigious national hackathon. Tackled Dynamic Route Rationalization (Problem Statement 1617) to prevent bus bunching — using ML and data-driven optimization to predict demand and rationalize bus routes in real time.",
       image: "/hackathons/sih-winner.jpeg",
       win: "1st Prize - National Winner",
       gallery: [

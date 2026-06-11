@@ -104,6 +104,8 @@ export default function ProjectsSection() {
                                         dates={project.dates}
                                         tags={project.technologies}
                                         index={id}
+                                        image={project.image}
+                                        video={project.video}
                                         links={project.links}
                                     />
                                 </motion.div>

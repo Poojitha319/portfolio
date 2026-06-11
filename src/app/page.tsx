@@ -11,7 +11,8 @@ import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
-import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, FileText, Mail } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -38,6 +39,42 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY * 2}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2.3}>
+                <div className="flex flex-wrap items-center gap-2.5 pt-2">
+                  <Button asChild size="sm" className="gap-1.5">
+                    <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                      <FileText className="size-3.5" />
+                      View Résumé
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="sm" className="gap-1.5">
+                    <Link href={`mailto:${DATA.contact.email}`}>
+                      <Mail className="size-3.5" />
+                      Get in touch
+                    </Link>
+                  </Button>
+                  {Object.values(DATA.contact.social)
+                    .filter((s) => s.navbar)
+                    .map((s) => (
+                      <Button
+                        key={s.name}
+                        asChild
+                        variant="outline"
+                        size="icon"
+                        className="size-8 rounded-full"
+                      >
+                        <Link
+                          href={s.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={s.name}
+                        >
+                          <s.icon className="size-4" />
+                        </Link>
+                      </Button>
+                    ))}
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
