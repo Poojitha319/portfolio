@@ -70,20 +70,23 @@ export default function WorkSection() {
                   <h3 className="font-semibold text-sm md:text-base group-hover:text-primary transition-colors">
                     {work.company}
                   </h3>
-                  {work.badges.map((badge) => (
+                  {work.badges.map((badge) => {
+                    const label = String(badge);
+                    return (
                     <Badge
-                      key={badge}
+                      key={label}
                       variant="outline"
                       className={cn(
                         "text-[10px] px-1.5 py-0 font-medium",
-                        badge === "Current" && "border-green-500/30 text-green-600 dark:text-green-400",
-                        badge === "Freelance" && "border-blue-500/30 text-blue-600 dark:text-blue-400"
+                        label === "Current" && "border-green-500/30 text-green-600 dark:text-green-400",
+                        label === "Freelance" && "border-blue-500/30 text-blue-600 dark:text-blue-400"
                       )}
                     >
-                      {badge === "Current" && <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 mr-1 animate-pulse" />}
-                      {badge}
+                      {label === "Current" && <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 mr-1 animate-pulse" />}
+                      {label}
                     </Badge>
-                  ))}
+                    );
+                  })}
                 </div>
                 <p className="text-sm text-muted-foreground mt-0.5">{work.title}</p>
                 <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
