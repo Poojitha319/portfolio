@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
   },
-  description: DATA.description,
+  description: `${DATA.name} — ${DATA.roles[0]}. ${DATA.description}`,
   openGraph: {
     title: `${DATA.name}`,
     description: DATA.description,

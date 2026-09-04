@@ -38,7 +38,7 @@ export function ProjectCard({
   return (
     <motion.div
       className={cn(
-        "group relative flex flex-col overflow-hidden border border-border rounded-2xl w-[320px] md:w-[360px] h-[380px] shrink-0 select-none",
+        "group relative flex flex-col overflow-hidden border border-border rounded-2xl w-full h-full min-h-[380px] select-none",
         "bg-card transition-all duration-300",
         "hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5",
         className
@@ -96,6 +96,7 @@ export function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
+                  aria-label={link.type}
                   className="p-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all"
                 >
                   {link.icon}
@@ -106,6 +107,7 @@ export function ProjectCard({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Open ${title}`}
                   className="p-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all"
                 >
                   <ArrowUpRight className="size-3.5" />

@@ -30,12 +30,14 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function WorkSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndexes, setOpenIndexes] = useState<number[]>(() =>
+    DATA.work.map((_, index) => index)
+  );
 
   return (
     <div className="grid gap-4">
       {DATA.work.map((work, index) => {
-        const isOpen = openIndex === index;
+        const isOpen = openIndexes.includes(index);
         return (
           <motion.div
             key={work.company}
@@ -51,7 +53,15 @@ export default function WorkSection() {
             transition={{ delay: index * 0.1, duration: 0.4 }}
           >
             <button
-              onClick={() => setOpenIndex(isOpen ? -1 : index)}
+              type="button"
+              aria-expanded={isOpen}
+              onClick={() =>
+                setOpenIndexes((current) =>
+                  isOpen
+                    ? current.filter((item) => item !== index)
+                    : [...current, index]
+                )
+              }
               className="w-full p-4 md:p-5 flex items-center gap-4 text-left cursor-pointer group"
             >
               <LogoImage src={work.logoUrl} alt={work.company} />

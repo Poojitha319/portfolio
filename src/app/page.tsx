@@ -2,11 +2,11 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import CountUp from "@/components/magicui/count-up";
-import TypingRoles from "@/components/magicui/typing-roles";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { allPosts } from "content-collections";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
@@ -15,6 +15,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, FileText, Mail } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
+
+const featuredPosts = [...allPosts]
+  .sort((a, b) => (new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1))
+  .filter((post) =>
+    [
+      "work-orchestration-agentic-ai",
+      "guardrails-in-llms",
+      "voice-of-aarna-part-1",
+    ].includes(post._meta.path.replace(/\.mdx$/, ""))
+  )
+  .slice(0, 3);
 
 export default function Page() {
   return (
@@ -30,9 +41,9 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name.split(" ")[1]}`}
               />
               <BlurFade delay={BLUR_FADE_DELAY * 1.5}>
-                <div className="text-lg md:text-xl lg:text-2xl font-medium min-h-[2em]">
-                  <TypingRoles roles={[...DATA.roles]} />
-                </div>
+                <p className="text-lg md:text-xl lg:text-2xl font-medium text-primary">
+                  {DATA.roles[0]}
+                </p>
               </BlurFade>
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-base lg:text-lg"
@@ -214,8 +225,46 @@ export default function Page() {
           <ProjectsSection />
         </BlurFade>
       </section>
+      <section id="writing">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <h2 className="text-xl font-bold">Writing</h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              Notes on shipping agents in production.
+            </p>
+          </BlurFade>
+          <div className="flex flex-col gap-3">
+            {featuredPosts.map((post, index) => {
+              const slug = post._meta.path.replace(/\.mdx$/, "");
+              return (
+                <BlurFade key={slug} delay={BLUR_FADE_DELAY * 14 + index * 0.05}>
+                  <Link
+                    href={`/blog/${slug}`}
+                    className="group flex flex-col gap-1 rounded-xl border border-border p-4 transition-colors hover:border-primary/30 hover:bg-primary/5"
+                  >
+                    <span className="font-medium group-hover:text-primary transition-colors">
+                      {post.title}
+                    </span>
+                    <span className="text-sm text-muted-foreground line-clamp-2">
+                      {post.summary}
+                    </span>
+                  </Link>
+                </BlurFade>
+              );
+            })}
+          </div>
+          <BlurFade delay={BLUR_FADE_DELAY * 15}>
+            <Link
+              href="/blog"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              All posts →
+            </Link>
+          </BlurFade>
+        </div>
+      </section>
       <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <HackathonsSection />
         </BlurFade>
       </section>

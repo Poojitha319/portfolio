@@ -9,25 +9,18 @@ import { Python } from "@/components/ui/svgs/python";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
 
 export const DATA = {
   name: "Sai Poojitha Sajjavarapu",
   initials: "SP",
-  url: "https://github.com/Poojitha319",
-  location: "Nuzvid, Andhra Pradesh, India",
-  locationLink: "https://www.google.com/maps/place/Nuzvid",
+  url: "https://sai-poojitha-portfolio.vercel.app",
+  location: "Visakhapatnam, Andhra Pradesh, India",
+  locationLink: "https://www.google.com/maps/place/Visakhapatnam",
   description:
     "Shipping production AI systems end-to-end — from code to cloud.",
-  roles: [
-    "AI Backend Engineer",
-    "Data Engineer",
-    "Cloud & DevOps Engineer",
-    "Full Stack Developer",
-    "Agentic AI Builder",
-  ],
+  roles: ["Backend Engineer"],
   summary:
-    "Hi, I'm Poojitha! I'm a B.Tech CS graduate (May 2026) from [IIIT Nuzvid](/#education), currently working as an AI Backend Engineer at [Quantum Gandiva AI](/#work) where I build production Agentic AI systems with FastAPI, AWS, and LLMs. Previously, I worked as an [AI/ML Developer at Parabola9](/#work), developing and deploying generative AI applications. I've won [3 national-level hackathons](/#hackathons) including Smart India Hackathon 2024, and solved [500+ LeetCode problems](https://leetcode.com/u/poojitha_2004/) with a contest rating of 1600+. I believe technology should be accessible to everyone — that's why I build AI products that solve real-world problems for real people.",
+    "I'm a B.Tech CS student at [IIIT Nuzvid](/#education) (graduating May 2026) and a backend engineer at [Quantum Gandiva AI](/#work), where I own the production backend for an AI platform — FastAPI, Redis Streams, AWS, and distributed services. Before that I was an [AI/ML Developer at Parabola9](/#work). I've won [3 national-level hackathons](/#hackathons) including Smart India Hackathon 2024, and solved [500+ LeetCode problems](https://leetcode.com/u/poojitha_2004/) at a 1600+ contest rating. I write about [shipping agents in production](/blog/work-orchestration-agentic-ai). I keep stretching the backend stack as I go — that's how I want to keep growing.",
   avatarUrl: "/me.jpg",
   stats: [
     { value: "3x", label: "Hackathon Winner", sublabel: "Including SIH 2024" },
@@ -39,13 +32,10 @@ export const DATA = {
     {
       category: "Languages",
       skills: [
-        { name: "Java", icon: Java },
-        { name: "C", icon: null },
-        { name: "C++", icon: null },
         { name: "Python", icon: Python },
-        { name: "JavaScript", icon: null },
         { name: "TypeScript", icon: Typescript },
-        { name: "Dart", icon: null },
+        { name: "JavaScript", icon: null },
+        { name: "SQL", icon: null },
       ],
     },
     {
@@ -53,12 +43,10 @@ export const DATA = {
       skills: [
         { name: "Agentic AI", icon: null },
         { name: "LLMs", icon: null },
-        { name: "Generative AI", icon: null },
-        { name: "NLP", icon: null },
-        { name: "Machine Learning", icon: null },
-        { name: "Deep Learning", icon: null },
         { name: "LangChain", icon: null },
+        { name: "LangGraph", icon: null },
         { name: "TensorFlow", icon: null },
+        { name: "NLP", icon: null },
       ],
     },
     {
@@ -70,27 +58,24 @@ export const DATA = {
         { name: "React", icon: ReactLight },
         { name: "Next.js", icon: NextjsIconDark },
         { name: "Node.js", icon: Nodejs },
-        { name: "Flutter", icon: null },
       ],
     },
     {
       category: "Tools & DevOps",
       skills: [
-        { name: "Git", icon: null },
         { name: "Docker", icon: Docker },
         { name: "Kubernetes", icon: Kubernetes },
-        { name: "Postman", icon: null },
         { name: "GitHub Actions", icon: null },
-        { name: "CI/CD", icon: null },
-        { name: "Redis", icon: null },
         { name: "Terraform", icon: null },
+        { name: "CI/CD", icon: null },
       ],
     },
     {
       category: "Databases & Cloud",
       skills: [
-        { name: "MySQL", icon: null },
         { name: "PostgreSQL", icon: Postgresql },
+        { name: "Redis", icon: null },
+        { name: "Redis Streams", icon: null },
         { name: "AWS", icon: null },
         { name: "GCP", icon: null },
       ],
@@ -132,24 +117,12 @@ export const DATA = {
       href: "https://quantumgandiva.com",
       badges: ["Current"],
       location: "Visakhapatnam, India",
-      title: "AI Backend Engineer & Data Engineer",
+      title: "Backend Engineer",
       logoUrl: "/quantum.jpg",
       start: "November 2025",
       end: "Present",
       description:
-        "Architected and shipped the entire production backend for an Agentic AI platform from scratch — orchestrating 7+ autonomous agents with multi-step reasoning, tool-calling, and memory pipelines\nBuilt FastAPI microservices with async request handling, modular API design, and optimized data flow integrating LLM reasoning, agent memory, and dynamic tool-calling workflows\nEngineered AWS data pipelines (S3, Lambda, RDS) with Terraform for real-time ingestion and ETL, and set up CI/CD, Docker & Kubernetes orchestration with production monitoring\nOwned the backend end-to-end as the lead engineer — from system design to deployment to monitoring — keeping the platform reliable in production",
-    },
-    {
-      company: "MSM AI",
-      href: "#",
-      badges: ["Freelance"],
-      location: "Remote",
-      title: "AI Engineer",
-      logoUrl: "",
-      start: "September 2025",
-      end: "December 2025",
-      description:
-        "Worked on designing and integrating AI agents and automation pipelines to enhance system intelligence and operational efficiency\nBuilt and deployed end-to-end machine learning and deep learning models integrated with LLMs for intelligent decision-making and workflow automation\nCollaborated with cross-functional teams to develop and optimize scalable, production-ready AI solutions, ensuring seamless deployment and continuous improvement",
+        "Built the production backend from scratch and still own it — APIs, services, and the path from design to deploy\nUsed Redis Streams to run a distributed event flow so work moves reliably between services under load\nTook ownership of core backend features end-to-end — design, implementation, and production\nKeep exploring new backend tools as the system grows — FastAPI, AWS, Docker, Kubernetes, and Terraform",
     },
     {
       company: "Parabola9",
@@ -161,7 +134,7 @@ export const DATA = {
       start: "December 2024",
       end: "May 2025",
       description:
-        "Developed and optimized advanced ML models for generative AI applications and LLM-based systems\nDeployed AI models in production using Docker containers, managing end-to-end deployment lifecycle\nBuilt scalable RESTful APIs with FastAPI and integrated automated testing workflows\nCollaborated with engineers and domain experts to optimize system performance and resolve production bottlenecks",
+        "Built and tuned generative AI / LLM models that powered the product after the VideoGPT hackathon win\nContainerized those models with Docker and owned the path from notebook to a running service\nWrote FastAPI REST endpoints around the models and added automated tests so deploys stayed reliable\nWorked with engineers and domain experts to fix production bottlenecks as usage grew",
     },
   ],
   education: [
@@ -184,26 +157,25 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Tailor-Fit: AI Shopping Platform",
-      image: "/projects/tailorfit.png",
+      title: "MediBuddy: AI Prescription Interpreter",
+      image: "/projects/medibuddy.png",
       video: "",
-      href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
-      dates: "2024",
+      href: "https://github.com/Poojitha319/MediBuddy",
+      dates: "2025",
       description:
-        "Built the ML/CV pipeline and backend for a fashion-tech platform. Developed 3D body reconstruction from single images using PiHuD, automated body measurement extraction via cross-sectional geometry on SMPL meshes, and integrated virtual try-on with HR-VITON. Achieved 35% simulated return-rate reduction. Team project — owned model development and backend.",
+        "Full-stack AI app that reads a medicine pack photo and explains usage, dosage, side effects, and warnings in plain language. JWT auth, saved analysis history, and an accessible UI built for elderly users.",
       technologies: [
-        "Python",
-        "PyTorch",
-        "PiHuD",
-        "Open3D",
-        "MediaPipe",
-        "Node.js",
-        "Express.js",
+        "React.js",
+        "FastAPI",
+        "PostgreSQL",
+        "Gemini API",
+        "JWT",
+        "Docker",
       ],
       links: [
         {
-          type: "Source",
-          href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
+          type: "GitHub",
+          href: "https://github.com/Poojitha319/MediBuddy",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -227,32 +199,33 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Source",
+          type: "GitHub",
           href: "https://github.com/Poojitha319/AI-Driven-Blood-Donation-Network",
           icon: <Icons.github className="size-3" />,
         },
       ],
     },
     {
-      title: "MediBuddy: AI Prescription Interpreter",
-      image: "/projects/medibuddy.png",
+      title: "Tailor-Fit: AI Shopping Platform",
+      image: "/projects/tailorfit.png",
       video: "",
-      href: "https://github.com/Poojitha319/MediBuddy",
-      dates: "2025",
+      href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
+      dates: "2024",
       description:
-        "A full-stack AI-powered medicine analysis platform. Upload medicine package images and get instant structured analysis including usage, side effects, warnings, and more. Built with accessibility in mind for elderly users. Features JWT authentication, analysis history, and multi-language support.",
+        "Built the ML/CV pipeline and backend for a fashion-tech platform. Developed 3D body reconstruction from single images using PiHuD, automated body measurement extraction via cross-sectional geometry on SMPL meshes, and integrated virtual try-on with HR-VITON. Achieved 35% simulated return-rate reduction. Team project — owned model development and backend.",
       technologies: [
-        "React.js",
-        "FastAPI",
-        "PostgreSQL",
-        "Gemini API",
-        "JWT",
-        "Docker",
+        "Python",
+        "PyTorch",
+        "PiHuD",
+        "Open3D",
+        "MediaPipe",
+        "Node.js",
+        "Express.js",
       ],
       links: [
         {
-          type: "Source",
-          href: "https://github.com/Poojitha319/MediBuddy",
+          type: "GitHub",
+          href: "https://github.com/Poojitha319/Tailor-Fit-modeldev",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -274,7 +247,7 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Source",
+          type: "GitHub",
           href: "https://github.com/Poojitha319/VisualDSA",
           icon: <Icons.github className="size-3" />,
         },
@@ -297,7 +270,7 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Source",
+          type: "GitHub",
           href: "https://github.com/Poojitha319/The-Challangers",
           icon: <Icons.github className="size-3" />,
         },
@@ -305,31 +278,6 @@ export const DATA = {
     },
   ],
   hackathons: [
-    {
-      title: "Teczite Mega Expo",
-      dates: "March 2025",
-      location: "National Level, RGUKT Nuzvid",
-      description:
-        "Secured 1st Prize at a national-level technical expo by developing an AI-powered security surveillance system integrating gesture recognition, YOLO-based anomaly detection, and real-time video captioning.",
-      image: "/hackathons/teczite-logo.jpg",
-      win: "1st Prize Winner",
-      gallery: [] as string[],
-      links: [] as { title: string; icon: React.ReactNode; href: string }[],
-    },
-    {
-      title: "Google Girl Hackathon 2025",
-      dates: "February 2025",
-      location: "National Level, Google India",
-      description:
-        "Selected for Phase 2 in a competitive national hackathon organized by Google India, focusing on impactful AI/ML solutions and collaborative team development. Solved DSA challenges in a timed coding environment.",
-      image: "/hackathons/google-girl-mail.jpeg",
-      win: "Phase 2 Qualifier",
-      gallery: [
-        "/hackathons/google-girl-welcome.jpeg",
-        "/hackathons/google-girl-speaker.jpeg",
-      ],
-      links: [] as { title: string; icon: React.ReactNode; href: string }[],
-    },
     {
       title: "Smart India Hackathon 2024",
       dates: "December 2024",
@@ -348,6 +296,17 @@ export const DATA = {
       links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
+      title: "Teczite Mega Expo",
+      dates: "March 2025",
+      location: "National Level, RGUKT Nuzvid",
+      description:
+        "Secured 1st Prize at a national-level technical expo by developing an AI-powered security surveillance system integrating gesture recognition, YOLO-based anomaly detection, and real-time video captioning.",
+      image: "/hackathons/teczite-logo.jpg",
+      win: "1st Prize Winner",
+      gallery: [] as string[],
+      links: [] as { title: string; icon: React.ReactNode; href: string }[],
+    },
+    {
       title: "IIIT Hackathon - Parabola9",
       dates: "November 2024",
       location: "IIIT Nuzvid, India",
@@ -363,6 +322,20 @@ export const DATA = {
           href: "https://github.com/Poojitha319/The-Challangers",
         },
       ],
+    },
+    {
+      title: "Google Girl Hackathon 2025",
+      dates: "February 2025",
+      location: "National Level, Google India",
+      description:
+        "Selected for Phase 2 in a competitive national hackathon organized by Google India, focusing on impactful AI/ML solutions and collaborative team development. Solved DSA challenges in a timed coding environment.",
+      image: "/hackathons/google-girl-mail.jpeg",
+      win: "Phase 2 Qualifier",
+      gallery: [
+        "/hackathons/google-girl-welcome.jpeg",
+        "/hackathons/google-girl-speaker.jpeg",
+      ],
+      links: [] as { title: string; icon: React.ReactNode; href: string }[],
     },
     {
       title: "Hacker Ramp WeForShe 2024",
