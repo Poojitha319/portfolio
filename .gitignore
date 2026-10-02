@@ -40,3 +40,6 @@ next-env.d.ts
 .content-collections
 
 .vercel
+
+# design specs and plans (local only)
+docs/

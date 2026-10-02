@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="ui-monospace, Menlo, Consolas, monospace">
+  <!-- Sample screenshot for habitd: replace with a real one at public/projects/habitd.png -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2140"/>
+      <stop offset="1" stop-color="#0a1628"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- window chrome -->
+  <rect x="0" y="0" width="1600" height="64" fill="#0b1830"/>
+  <circle cx="40" cy="32" r="9" fill="#ff5f57"/>
+  <circle cx="70" cy="32" r="9" fill="#febc2e"/>
+  <circle cx="100" cy="32" r="9" fill="#28c840"/>
+  <text x="800" y="40" text-anchor="middle" fill="#8892b0" font-size="22">habitd — redis streams</text>
+
+  <!-- flow diagram -->
+  <text x="60" y="130" fill="#ccd6f6" font-size="30" font-weight="600">event flow</text>
+  <text x="60" y="166" fill="#8892b0" font-size="18">3 streams · 2 consumer groups · 0 databases</text>
+
+  <g font-size="21">
+    <rect x="60" y="220" width="260" height="80" rx="14" fill="#112240" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="190" y="268" text-anchor="middle" fill="#ccd6f6">POST /context</text>
+
+    <rect x="400" y="220" width="260" height="80" rx="14" fill="#0d1d36" stroke="#7dd3fc" stroke-width="2.5"/>
+    <text x="530" y="258" text-anchor="middle" fill="#7dd3fc">context</text>
+    <text x="530" y="284" text-anchor="middle" fill="#8892b0" font-size="16">stream</text>
+
+    <rect x="740" y="220" width="260" height="80" rx="14" fill="#112240" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="870" y="258" text-anchor="middle" fill="#ccd6f6">rules</text>
+    <text x="870" y="284" text-anchor="middle" fill="#8892b0" font-size="16">consumer group</text>
+
+    <rect x="1080" y="220" width="260" height="80" rx="14" fill="#0d1d36" stroke="#7dd3fc" stroke-width="2.5"/>
+    <text x="1210" y="258" text-anchor="middle" fill="#7dd3fc">habit.due</text>
+    <text x="1210" y="284" text-anchor="middle" fill="#8892b0" font-size="16">stream</text>
+
+    <rect x="1080" y="400" width="260" height="80" rx="14" fill="#112240" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="1210" y="438" text-anchor="middle" fill="#ccd6f6">reminder</text>
+    <text x="1210" y="464" text-anchor="middle" fill="#8892b0" font-size="16">consumer group</text>
+
+    <rect x="60" y="400" width="260" height="80" rx="14" fill="#112240" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="190" y="448" text-anchor="middle" fill="#ccd6f6">POST /checkin</text>
+
+    <rect x="400" y="400" width="260" height="80" rx="14" fill="#0d1d36" stroke="#7dd3fc" stroke-width="2.5"/>
+    <text x="530" y="438" text-anchor="middle" fill="#7dd3fc">checkins</text>
+    <text x="530" y="464" text-anchor="middle" fill="#8892b0" font-size="16">stream</text>
+
+    <rect x="1400" y="400" width="160" height="80" rx="14" fill="#0d1d36" stroke="#f5b95a" stroke-width="2.5"/>
+    <text x="1480" y="448" text-anchor="middle" fill="#f5b95a">notify</text>
+  </g>
+  <g stroke="#7dd3fc" stroke-width="2.5" fill="none" marker-end="url(#arrow)" opacity="0.85">
+    <path d="M320 260 L396 260"/>
+    <path d="M660 260 L736 260"/>
+    <path d="M1000 260 L1076 260"/>
+    <path d="M1210 300 L1210 396"/>
+    <path d="M320 440 L396 440"/>
+    <path d="M1340 440 L1396 440"/>
+  </g>
+  <g stroke="#7dd3fc" stroke-width="2" fill="none" stroke-dasharray="8 8" opacity="0.6">
+    <path d="M660 430 C 760 430, 800 340, 860 304"/>
+    <path d="M660 450 C 850 470, 950 470, 1076 450"/>
+  </g>
+  <text x="700" y="500" fill="#8892b0" font-size="16">XREVRANGE checkins + - (last 3h)</text>
+
+  <!-- terminal log -->
+  <rect x="60" y="560" width="1480" height="400" rx="18" fill="#08121f" stroke="#233554" stroke-width="2"/>
+  <g font-size="22">
+    <text x="100" y="620" fill="#495670">$ habitd logs --follow</text>
+    <text x="100" y="666" fill="#8892b0">18:02:11  <tspan fill="#7dd3fc">context</tspan>   arrived_home          id=1727872931000-0</text>
+    <text x="100" y="706" fill="#8892b0">18:02:11  <tspan fill="#ccd6f6">rules</tspan>     stretch: no check-in in last 3h</text>
+    <text x="100" y="746" fill="#8892b0">18:02:11  <tspan fill="#7dd3fc">habit.due</tspan> stretch due_at=18:22:11</text>
+    <text x="100" y="786" fill="#8892b0">18:09:40  <tspan fill="#7dd3fc">checkins</tspan>  stretch               id=1727873380000-0</text>
+    <text x="100" y="826" fill="#8892b0">18:22:11  <tspan fill="#ccd6f6">reminder</tspan>  stretch done before deadline → quiet</text>
+    <text x="100" y="866" fill="#8892b0">18:22:11  <tspan fill="#ccd6f6">reminder</tspan>  XACK habit.due reminder 1727872931512-0</text>
+    <text x="100" y="912" fill="#f5b95a">▍</text>
+  </g>
+</svg>
