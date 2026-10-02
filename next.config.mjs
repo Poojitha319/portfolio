@@ -4,26 +4,24 @@ import { withContentCollections } from "@content-collections/next";
 const nextConfig = {
   reactStrictMode: true,
   async headers() {
+    const common = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+    ];
     return [
       {
-        source: "/:path*",
+        // Everything except the résumé: never allow framing (clickjacking protection).
+        source: "/((?!resume\\.pdf$).*)",
+        headers: [...common, { key: "X-Frame-Options", value: "DENY" }],
+      },
+      {
+        // The résumé may be framed by this site only, for the in-page viewer.
+        source: "/resume.pdf",
         headers: [
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
+          ...common,
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
         ],
       },
     ];

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <!-- Sample screenshot for Aidra: replace with a real one at public/projects/aidra.png -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2140"/>
+      <stop offset="1" stop-color="#0a1628"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5eead4"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- window chrome -->
+  <rect x="0" y="0" width="1600" height="64" fill="#0b1830"/>
+  <circle cx="40" cy="32" r="9" fill="#ff5f57"/>
+  <circle cx="70" cy="32" r="9" fill="#febc2e"/>
+  <circle cx="100" cy="32" r="9" fill="#28c840"/>
+  <text x="800" y="40" text-anchor="middle" fill="#8892b0" font-size="22">aidra — triage console</text>
+
+  <!-- left: conversation -->
+  <rect x="40" y="104" width="620" height="856" rx="18" fill="#112240" stroke="#233554" stroke-width="2"/>
+  <text x="80" y="160" fill="#ccd6f6" font-size="30" font-weight="600">Conversation</text>
+  <rect x="200" y="200" width="420" height="104" rx="16" fill="#1d3557"/>
+  <text x="228" y="244" fill="#e6f1ff" font-size="22">What does this chest X-ray</text>
+  <text x="228" y="276" fill="#e6f1ff" font-size="22">show? (image attached)</text>
+  <rect x="80" y="336" width="500" height="196" rx="16" fill="#0d1d36" stroke="#233554" stroke-width="2"/>
+  <text x="108" y="380" fill="#5eead4" font-size="18" font-family="ui-monospace, Menlo, monospace">routed → radiology_agent</text>
+  <text x="108" y="420" fill="#ccd6f6" font-size="22">Possible right lower lobe</text>
+  <text x="108" y="452" fill="#ccd6f6" font-size="22">opacity. Pending clinician review</text>
+  <text x="108" y="484" fill="#ccd6f6" font-size="22">before this is shown as advice.</text>
+  <rect x="108" y="500" width="130" height="20" rx="10" fill="#f5b95a" opacity="0.18"/>
+  <text x="120" y="515" fill="#f5b95a" font-size="15">human-in-loop</text>
+  <rect x="200" y="564" width="420" height="72" rx="16" fill="#1d3557"/>
+  <text x="228" y="608" fill="#e6f1ff" font-size="22">Latest COVID variants?</text>
+  <rect x="80" y="668" width="500" height="160" rx="16" fill="#0d1d36" stroke="#233554" stroke-width="2"/>
+  <text x="108" y="712" fill="#5eead4" font-size="18" font-family="ui-monospace, Menlo, monospace">routed → research_agent</text>
+  <text x="108" y="752" fill="#ccd6f6" font-size="22">Summary from 4 sources,</text>
+  <text x="108" y="784" fill="#ccd6f6" font-size="22">retrieved via hybrid search.</text>
+  <g font-size="15" fill="#8892b0">
+    <rect x="108" y="800" width="64" height="20" rx="10" fill="#233554"/><text x="124" y="815">[1]</text>
+    <rect x="180" y="800" width="64" height="20" rx="10" fill="#233554"/><text x="196" y="815">[2]</text>
+    <rect x="252" y="800" width="64" height="20" rx="10" fill="#233554"/><text x="268" y="815">[3]</text>
+  </g>
+  <rect x="80" y="868" width="540" height="56" rx="28" fill="#0a1628" stroke="#233554" stroke-width="2"/>
+  <text x="112" y="904" fill="#495670" font-size="20">Ask by text, voice, or image…</text>
+
+  <!-- right: routing graph -->
+  <rect x="700" y="104" width="860" height="856" rx="18" fill="#112240" stroke="#233554" stroke-width="2"/>
+  <text x="740" y="160" fill="#ccd6f6" font-size="30" font-weight="600">Agent routing</text>
+  <text x="740" y="196" fill="#8892b0" font-size="18" font-family="ui-monospace, Menlo, monospace">LangGraph · Qdrant · Postgres · Redis</text>
+
+  <g font-family="ui-monospace, Menlo, monospace" font-size="20">
+    <rect x="1010" y="240" width="240" height="72" rx="14" fill="#0d1d36" stroke="#5eead4" stroke-width="2.5"/>
+    <text x="1130" y="284" text-anchor="middle" fill="#5eead4">router</text>
+
+    <rect x="760" y="430" width="230" height="72" rx="14" fill="#0d1d36" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="875" y="474" text-anchor="middle" fill="#ccd6f6">radiology</text>
+    <rect x="1015" y="430" width="230" height="72" rx="14" fill="#0d1d36" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="1130" y="474" text-anchor="middle" fill="#ccd6f6">research</text>
+    <rect x="1270" y="430" width="230" height="72" rx="14" fill="#0d1d36" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="1385" y="474" text-anchor="middle" fill="#ccd6f6">general</text>
+
+    <rect x="760" y="620" width="230" height="72" rx="14" fill="#0d1d36" stroke="#f5b95a" stroke-width="2.5"/>
+    <text x="875" y="664" text-anchor="middle" fill="#f5b95a">human review</text>
+    <rect x="1015" y="620" width="485" height="72" rx="14" fill="#0d1d36" stroke="#3b5a8c" stroke-width="2"/>
+    <text x="1257" y="664" text-anchor="middle" fill="#ccd6f6">guardrails + citations</text>
+
+    <rect x="1015" y="810" width="230" height="72" rx="14" fill="#0d1d36" stroke="#5eead4" stroke-width="2.5"/>
+    <text x="1130" y="854" text-anchor="middle" fill="#5eead4">answer</text>
+  </g>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" marker-end="url(#arrow)" opacity="0.85">
+    <path d="M1080 312 C 1000 360, 900 380, 880 426"/>
+    <path d="M1130 312 L1130 426"/>
+    <path d="M1180 312 C 1260 360, 1360 380, 1380 426"/>
+    <path d="M875 502 L875 616"/>
+    <path d="M1130 502 L1130 616"/>
+    <path d="M1385 502 L1385 616"/>
+    <path d="M875 692 C 880 760, 1000 820, 1011 840"/>
+    <path d="M1200 692 L1160 806"/>
+  </g>
+</svg>

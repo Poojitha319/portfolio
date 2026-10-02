@@ -15,3 +15,8 @@ export function formatDate(date: string | Date) {
     timeZone: "UTC",
   });
 }
+
+// "November 2025" -> "Nov 2025"; anything that isn't a month name ("Present") is left alone.
+export function shortMonth(value: string) {
+  return value.replace(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*/, "$1");
+}
