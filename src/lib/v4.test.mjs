@@ -150,7 +150,7 @@ test("résumé opens the PDF directly on phones", () => {
   assert.equal(opensResumeInline(plainClick, false), false);
 });
 
-test("Quantum Gandiva links to its LinkedIn company page", () => {
+test("Quantum Gandiva links to the company website", () => {
   const qg = CONTENT.work.find((j) => j.company === "Quantum Gandiva AI");
-  assert.equal(qg.href, "https://www.linkedin.com/company/quantum-gandiva-ai/");
+  assert.equal(qg.href, "https://www.quantumgandivaai.com/");
 });

@@ -28,7 +28,7 @@ const work: readonly Job[] = [
     tab: "Quantum Gandiva",
     title: "Backend Engineer",
     company: "Quantum Gandiva AI",
-    href: "https://www.linkedin.com/company/quantum-gandiva-ai/",
+    href: "https://www.quantumgandivaai.com/",
     start: "Nov 2025",
     end: "Present",
     progression: [
