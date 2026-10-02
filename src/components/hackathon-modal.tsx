@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
+import { useDialog } from "@/lib/use-dialog";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight, Trophy, MapPin, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +23,8 @@ interface HackathonModalProps {
 
 export default function HackathonModal({ hackathon, isOpen, onClose }: HackathonModalProps) {
   const [currentImage, setCurrentImage] = useState(0);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   const allImages = [
     ...(hackathon.image ? [hackathon.image] : []),
@@ -35,6 +38,8 @@ export default function HackathonModal({ hackathon, isOpen, onClose }: Hackathon
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + allImages.length) % allImages.length);
   };
+
+  useDialog(isOpen, onClose, dialogRef, closeRef);
 
   return (
     <AnimatePresence>
@@ -53,6 +58,10 @@ export default function HackathonModal({ hackathon, isOpen, onClose }: Hackathon
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="hackathon-modal-title"
             className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[85vh] bg-card border rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col"
           >
             {/* Header */}
@@ -67,10 +76,13 @@ export default function HackathonModal({ hackathon, isOpen, onClose }: Hackathon
                     <Trophy className="h-5 w-5 text-yellow-500" />
                   </motion.div>
                 )}
-                <h3 className="font-bold text-lg">{hackathon.title}</h3>
+                <h3 id="hackathon-modal-title" className="font-bold text-lg">{hackathon.title}</h3>
               </div>
               <button
+                ref={closeRef}
+                type="button"
                 onClick={onClose}
+                aria-label="Close"
                 className="p-2 rounded-full hover:bg-muted transition-colors"
               >
                 <X className="h-5 w-5" />
@@ -99,13 +111,17 @@ export default function HackathonModal({ hackathon, isOpen, onClose }: Hackathon
                   {allImages.length > 1 && (
                     <>
                       <button
+                        type="button"
                         onClick={prevImage}
+                        aria-label="Previous photo"
                         className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
                       >
                         <ChevronLeft className="h-5 w-5" />
                       </button>
                       <button
+                        type="button"
                         onClick={nextImage}
+                        aria-label="Next photo"
                         className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
                       >
                         <ChevronRight className="h-5 w-5" />
@@ -116,7 +132,10 @@ export default function HackathonModal({ hackathon, isOpen, onClose }: Hackathon
                         {allImages.map((_, i) => (
                           <button
                             key={i}
+                            type="button"
                             onClick={() => setCurrentImage(i)}
+                            aria-label={`Show photo ${i + 1} of ${allImages.length}`}
+                            aria-current={i === currentImage ? "true" : undefined}
                             className={`w-2 h-2 rounded-full transition-all ${
                               i === currentImage
                                 ? "bg-white w-6"
