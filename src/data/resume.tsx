@@ -19,7 +19,7 @@ export const DATA = {
   location: "Visakhapatnam, Andhra Pradesh, India",
   locationLink: "https://www.google.com/maps/place/Visakhapatnam",
   description:
-    "Shipping production AI systems end-to-end — from code to cloud.",
+    "Backend engineer who loves building systems that don't break. I own the backend of a production multi-agent AI platform, from system design to live incidents.",
   roles: ["Backend Engineer"],
   summary:
     "Hi! I'm Poojitha, a backend engineer who enjoys the part of software nobody sees until it breaks. I like asking the uncomfortable questions early: what happens when a service restarts mid-request, when a message arrives twice, or when an API we don't control goes quiet?\n\nI found my way here through hackathons. In college I spent weekends turning rough ideas into working systems, and one of them ended in a national win at [Smart India Hackathon 2024](#hackathons). Building under a deadline taught me to keep designs simple enough to reason about, and honest about their trade-offs.\n\nRight now I own the backend end to end at an early-stage AI startup, so those uncomfortable questions aren't hypothetical — I answer them in production every week. Lately I'm going deeper on system design: idempotency, retries, durable timers, event-driven architecture. I learn by building small systems end to end, like [habitd](https://github.com/Poojitha319/habitd), [writing](#writing) about what breaks, and keeping a steady [LeetCode](https://leetcode.com/u/poojitha_2004/) practice.",

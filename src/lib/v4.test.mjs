@@ -149,3 +149,8 @@ test("résumé keeps normal link behaviour for modified or middle clicks", () =>
 test("résumé opens the PDF directly on phones", () => {
   assert.equal(opensResumeInline(plainClick, false), false);
 });
+
+test("Quantum Gandiva links to its LinkedIn company page", () => {
+  const qg = CONTENT.work.find((j) => j.company === "Quantum Gandiva AI");
+  assert.equal(qg.href, "https://www.linkedin.com/company/quantum-gandiva-ai/");
+});
